@@ -502,7 +502,7 @@ with tab3:
                 # --- 左右カラム：分析 ---
                 c_left, c_right = st.columns([1, 1])
                 with c_left:
-                    st.markdown("### 📞 相手先ランキング")
+                    st.markdown("### 📞 相手先TOP10")
                     caller_counts = df_sub["相手"].value_counts().head(10)
                     # 横棒グラフで見やすく
                     st.bar_chart(caller_counts, horizontal=True)
@@ -571,3 +571,4 @@ with tab3:
             else:
 
                 st.warning("選択した月のデータはありません")
+
