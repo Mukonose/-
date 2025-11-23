@@ -401,7 +401,7 @@ with tab1:
             in_memo = st.text_area("詳細メモ", height=100)
             
             st.divider()
-            in_subject = st.text_input("メール件名（空欄の場合は自動生成）", placeholder="例：【至急】田中様より折り返し願い")
+            in_subject = st.text_input("メール件名（空欄の場合は自動生成）", placeholder="例：【至急】〇〇様より 折り返しの願い")
 
             submitted = st.form_submit_button("送信＆保存", on_click=fix_name_callback)
             
@@ -569,4 +569,5 @@ with tab3:
                             mime="application/pdf"
                         )
             else:
+
                 st.warning("選択した月のデータはありません")
