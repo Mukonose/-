@@ -30,6 +30,8 @@ except Exception:
     SHARED_EMAIL = ""
     SHARED_PASS = ""
     SHARED_GROQ_KEY = ""
+# ==========================================
+
 # =====================
 # デザイン設定（Wideモード）
 # =====================
@@ -61,16 +63,21 @@ st.markdown("""
         margin: 0;
         font-size: 1.8rem;
         font-weight: bold;
+        color: white !important; /* 文字色を白に強制 */
     }
 
-    /* ★スマホ用レスポンシブ設定（追加部分）★ */
-    @media (max-width: 640px) {
+    /* ★スマホ用レスポンシブ設定（強力な強制適用）★ */
+    @media only screen and (max-width: 600px) {
         .main-header {
-            padding: 10px 10px;     /* 余白を狭く */
+            padding: 8px 4px !important; /* 余白を最小限に */
+            border-radius: 5px !important;
+            margin-bottom: 15px !important;
         }
         .main-header h1 {
-            font-size: 1.2rem;      /* 文字サイズを小さく */
-            line-height: 1.4;       /* 行間を調整 */
+            font-size: 1.1rem !important;   /* 文字サイズを小さく */
+            white-space: nowrap !important; /* ★強制的に改行禁止 */
+            line-height: 1.5 !important;
+            margin: 0 !important;
         }
     }
 
@@ -107,6 +114,7 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+
 # =====================
 # ファイル設定（Excel）
 # =====================
@@ -611,15 +619,4 @@ with tab3:
                             mime="application/pdf"
                         )
             else:
-
                 st.warning("この期間のデータはありません")
-
-
-
-
-
-
-
-
-
-
