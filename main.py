@@ -30,8 +30,6 @@ except Exception:
     SHARED_EMAIL = ""
     SHARED_PASS = ""
     SHARED_GROQ_KEY = ""
-# ==========================================
-
 # =====================
 # デザイン設定（Wideモード）
 # =====================
@@ -48,7 +46,7 @@ st.markdown("""
         background-color: #F0F8FF; 
     }
 
-    /* メインヘッダー */
+    /* メインヘッダー（PC用デフォルト） */
     .main-header {
         background: linear-gradient(90deg, #0052D4, #4364F7, #2E8B57);
         padding: 15px 30px;
@@ -63,6 +61,17 @@ st.markdown("""
         margin: 0;
         font-size: 1.8rem;
         font-weight: bold;
+    }
+
+    /* ★スマホ用レスポンシブ設定（追加部分）★ */
+    @media (max-width: 640px) {
+        .main-header {
+            padding: 10px 10px;     /* 余白を狭く */
+        }
+        .main-header h1 {
+            font-size: 1.2rem;      /* 文字サイズを小さく */
+            line-height: 1.4;       /* 行間を調整 */
+        }
     }
 
     /* ボタン */
@@ -604,6 +613,7 @@ with tab3:
             else:
 
                 st.warning("この期間のデータはありません")
+
 
 
 
