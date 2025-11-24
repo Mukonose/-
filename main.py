@@ -35,17 +35,23 @@ except Exception:
 # =====================
 # デザイン設定（Wideモード）
 # =====================
-st.set_page_config(page_title="電話対応管理ツール", layout="wide", page_icon="📫")
+st.set_page_config(
+    page_title="電話対応管理ツール",
+    layout="wide",
+    page_icon="📫"
+)
 
 st.markdown("""
-    <div class="main-header-container">
-        <h1 class="main-header-text">電話対応管理ツール</h1>
-    </div>
-
     <style>
-    .main-header-container {
+    /* アプリ全体背景 */
+    .stApp { 
+        background-color: #F0F8FF; 
+    }
+
+    /* メインヘッダー */
+    .main-header {
         background: linear-gradient(90deg, #0052D4, #4364F7, #2E8B57);
-        padding: 10px 15px;
+        padding: 15px 30px;
         border-radius: 10px;
         color: white;
         text-align: center;
@@ -53,24 +59,13 @@ st.markdown("""
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    .main-header-text {
+    .main-header h1 {
         margin: 0;
+        font-size: 1.8rem;
         font-weight: bold;
-        font-size: clamp(1.5rem, 5vw, 2.5rem); /* 幅に応じて自動調整 */
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    </style>
-""", unsafe_allow_html=True)
-    /* スマホ用 */
-    @media (max-width: 480px) {
-        .main-header h1 {
-            font-size: 1.8rem;    /* 小さい画面では小さく */
-        }
     }
 
-    /* ボタンデザイン */
+    /* ボタン */
     div.stButton > button {
         background-color: #2E8B57;
         color: white;
@@ -82,7 +77,7 @@ st.markdown("""
         color: white; 
     }
 
-    /* AI表示ボックス */
+    /* AI分析ボックス */
     .ai-box {
         background-color: #e6fffa;
         border: 1px solid #2E8B57;
@@ -103,7 +98,6 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
-
 # =====================
 # ファイル設定（Excel）
 # =====================
@@ -610,6 +604,7 @@ with tab3:
             else:
 
                 st.warning("この期間のデータはありません")
+
 
 
 
