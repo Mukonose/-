@@ -49,7 +49,7 @@ st.markdown("""
         margin-bottom: 20px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .main-header h1 { margin: 0;  font-size: 1.2rem !important;  font-weight: bold; }
+    .main-header h2 { margin: 0;  font-size: 1.8rem;  font-weight: bold; }
     div.stButton > button {
         background-color: #2E8B57;
         color: white;
@@ -582,5 +582,6 @@ with tab3:
             else:
 
                 st.warning("この期間のデータはありません")
+
 
 
