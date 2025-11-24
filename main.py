@@ -38,37 +38,31 @@ except Exception:
 st.set_page_config(page_title="電話対応管理ツール", layout="wide", page_icon="📫")
 
 st.markdown("""
-    <style>
-    /* 全体背景 */
-    .stApp { 
-        background-color: #F0F8FF; 
-    }
+    <div class="main-header-container">
+        <h1 class="main-header-text">電話対応管理ツール</h1>
+    </div>
 
-    /* ヘッダー */
-    .main-header {
+    <style>
+    .main-header-container {
         background: linear-gradient(90deg, #0052D4, #4364F7, #2E8B57);
-        padding: 10px 15px;  /* 横幅を狭めてスマホ対応 */
+        padding: 10px 15px;
         border-radius: 10px;
         color: white;
         text-align: center;
         margin-bottom: 20px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-
-        display: flex;           /* フレックスで中央寄せ */
-        justify-content: center; /* 横方向中央寄せ */
-        flex-wrap: nowrap;       /* 折り返し禁止 */
-        overflow: hidden;        /* はみ出し文字は隠す */
     }
 
-    .main-header h1 {
+    .main-header-text {
         margin: 0;
-        font-size: 2.5rem;      /* PC用フォントサイズ */
         font-weight: bold;
-        white-space: nowrap;     /* 改行禁止 */
-        text-overflow: ellipsis; /* はみ出す場合「…」表示 */
+        font-size: clamp(1.5rem, 5vw, 2.5rem); /* 幅に応じて自動調整 */
+        white-space: nowrap;
         overflow: hidden;
+        text-overflow: ellipsis;
     }
-
+    </style>
+""", unsafe_allow_html=True)
     /* スマホ用 */
     @media (max-width: 480px) {
         .main-header h1 {
@@ -616,6 +610,7 @@ with tab3:
             else:
 
                 st.warning("この期間のデータはありません")
+
 
 
 
