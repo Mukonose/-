@@ -49,7 +49,18 @@ st.markdown("""
         margin-bottom: 20px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .main-header h1 { margin: 0; font-size: 36px;  font-weight: bold; }
+   .main-header h1 {
+    margin: 0;
+    font-size: 2.5rem;  /* PC用 */
+    font-weight: bold;
+}
+
+/* スマホ用 */
+@media (max-width: 480px) {
+    .main-header h1 {
+        font-size: 1.8rem;  /* 小さい画面では小さく */
+    }
+}
     div.stButton > button {
         background-color: #2E8B57;
         color: white;
@@ -582,6 +593,7 @@ with tab3:
             else:
 
                 st.warning("この期間のデータはありません")
+
 
 
 
