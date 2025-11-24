@@ -49,24 +49,26 @@ st.markdown("""
         margin-bottom: 20px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-   .main-header h1 {
-    margin: 0;
-    font-size: 2.5rem;  /* PC用 */
-    font-weight: bold;
+  .main-header {
+    background: linear-gradient(90deg, #0052D4, #4364F7, #2E8B57);
+    padding: 15px 10px;  /* 横幅を狭く */
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    
+    display: flex;        /* フレックスで横並びを強制 */
+    justify-content: center; /* 中央寄せ */
+    flex-wrap: nowrap;    /* 折り返し禁止 */
 }
 
-/* スマホ用 */
-@media (max-width: 480px) {
-    .main-header h1 {
-        font-size: 1.8rem;  /* 小さい画面では小さく */
-    }
+.main-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    white-space: nowrap;   /* 改行禁止 */
 }
-    div.stButton > button {
-        background-color: #2E8B57;
-        color: white;
-        border: none;
-        border-radius: 5px;
-    }
     div.stButton > button:hover { background-color: #3CB371; color: white; }
     .ai-box {
         background-color: #e6fffa;
@@ -593,6 +595,7 @@ with tab3:
             else:
 
                 st.warning("この期間のデータはありません")
+
 
 
 
