@@ -39,37 +39,56 @@ st.set_page_config(page_title="電話対応管理ツール", layout="wide", page
 
 st.markdown("""
     <style>
-    .stApp { background-color: #F0F8FF; }
+    /* 全体背景 */
+    .stApp { 
+        background-color: #F0F8FF; 
+    }
+
+    /* ヘッダー */
     .main-header {
         background: linear-gradient(90deg, #0052D4, #4364F7, #2E8B57);
-        padding: 15px 30px;
+        padding: 10px 15px;  /* 横幅を狭めてスマホ対応 */
         border-radius: 10px;
         color: white;
         text-align: center;
         margin-bottom: 20px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-  .main-header {
-    background: linear-gradient(90deg, #0052D4, #4364F7, #2E8B57);
-    padding: 15px 10px;  /* 横幅を狭く */
-    border-radius: 10px;
-    color: white;
-    text-align: center;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    
-    display: flex;        /* フレックスで横並びを強制 */
-    justify-content: center; /* 中央寄せ */
-    flex-wrap: nowrap;    /* 折り返し禁止 */
-}
 
-.main-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    font-weight: bold;
-    white-space: nowrap;   /* 改行禁止 */
-}
-    div.stButton > button:hover { background-color: #3CB371; color: white; }
+        display: flex;           /* フレックスで中央寄せ */
+        justify-content: center; /* 横方向中央寄せ */
+        flex-wrap: nowrap;       /* 折り返し禁止 */
+        overflow: hidden;        /* はみ出し文字は隠す */
+    }
+
+    .main-header h1 {
+        margin: 0;
+        font-size: 2.5rem;      /* PC用フォントサイズ */
+        font-weight: bold;
+        white-space: nowrap;     /* 改行禁止 */
+        text-overflow: ellipsis; /* はみ出す場合「…」表示 */
+        overflow: hidden;
+    }
+
+    /* スマホ用 */
+    @media (max-width: 480px) {
+        .main-header h1 {
+            font-size: 1.8rem;    /* 小さい画面では小さく */
+        }
+    }
+
+    /* ボタンデザイン */
+    div.stButton > button {
+        background-color: #2E8B57;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+    div.stButton > button:hover { 
+        background-color: #3CB371; 
+        color: white; 
+    }
+
+    /* AI表示ボックス */
     .ai-box {
         background-color: #e6fffa;
         border: 1px solid #2E8B57;
@@ -77,6 +96,8 @@ st.markdown("""
         border-radius: 8px;
         margin-top: 15px;
     }
+
+    /* エラーボックス */
     .error-box {
         background-color: #ffe6e6;
         border: 1px solid #ff0000;
@@ -595,6 +616,7 @@ with tab3:
             else:
 
                 st.warning("この期間のデータはありません")
+
 
 
 
