@@ -360,7 +360,7 @@ def create_pdf_report(report_text, period_label, caller_df, keyword_df):
 def fix_name_callback():
     if "input_name_val" in st.session_state:
         current_name = st.session_state.input_name_val.strip()
-        honorifics = ["様", "御中", "殿", "先生", "さん"]
+        honorifics = ["様", "御中", "先生", "さん"]
         if current_name and not any(current_name.endswith(h) for h in honorifics):
             st.session_state.input_name_val = current_name + "様"
 
@@ -465,7 +465,7 @@ with tab1:
                     if in_subject.strip(): subject = in_subject
                     else: subject = f"【電話】{final_name}"
                     
-                    body = f"{t_name}さん\n\n電話がありました。\n日時: {input_dt_str}\n相手: {final_name} ({in_tel})\n用件: {in_req}\n\n詳細:\n{in_memo}"
+                    body = f"{t_name}さん\n\nお電話がありました。\n日時: {input_dt_str}\n相手: {final_name} ({in_tel})\n用件: {in_req}\n\n詳細:\n{in_memo}"
                     
                     if send_gmail(my_email, my_pass, t_mail, c_mail, subject, body):
                         st.success(f"✅ 送信完了！ 日時：{input_dt_str} で登録しました。")
@@ -618,5 +618,6 @@ with tab3:
                         )
             else:
                 st.warning("この期間のデータはありません")
+
 
 
