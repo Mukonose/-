@@ -319,7 +319,7 @@ def create_pdf_report(report_text, period_label, caller_df, keyword_df):
     story.append(Spacer(1, 10*mm))
     
     if not caller_df.empty:
-        story.append(Paragraph("【相手先件数ランキング（TOP10）】", style_h2))
+        story.append(Paragraph("【相手先件数（TOP10）】", style_h2))
         story.append(Spacer(1, 3*mm))
         table_data = [['順位', '相手先名', '件数']]
         top10 = caller_df.head(10)
@@ -618,6 +618,7 @@ with tab3:
                         )
             else:
                 st.warning("この期間のデータはありません")
+
 
 
 
